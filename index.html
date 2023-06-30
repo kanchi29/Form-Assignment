@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Health Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-container label,
+    .form-container input,
+    .form-container button {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .form-container input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <form id="healthForm" enctype="multipart/form-data">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required>
+
+      <label for="weight">Weight:</label>
+      <input type="number" id="weight" name="weight" required>
+
+      <label for="email">Email Id:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="report">Upload Health Report:</label>
+      <input type="file" id="report" name="report" accept=".pdf" required>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("healthForm");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      // Perform form validation or submission logic here
+      // For demonstration purposes, we'll just log the form data
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      const weight = document.getElementById("weight").value;
+      const email = document.getElementById("email").value;
+      const report = document.getElementById("report").files[0];
+
+      console.log("Name: " + name);
+      console.log("Age: " + age);
+      console.log("Weight: " + weight);
+      console.log("Email: " + email);
+      console.log("Report File: " + report.name);
+
+      // Clear form after submission
+      form.reset();
+    });
+  </script>
+</body>
+</html>
